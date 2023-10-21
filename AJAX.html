@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="result">
+         
+    </div>
+    <button onclick="loadPhotos()">Click Me to load the Photos</button>
+    <button onclick="loadData()">Click Me to load the data</button>
+ 
+    <script>
+
+function loadData(){
+    //   var server = new XMLHttpRequest();
+
+
+    //   server.onreadystatechange = function(){
+
+    //     if(this.readyState == 4 && this.status == 200){
+    //         document.querySelector ('#result').innerHTML=this.responseaText;
+
+    //     }
+    //   }
+    //   server.open("GET", 'Demo.txt',true);
+    //   server.send();
+
+
+    var server = new XMLHttpRequest();
+
+    server.onreadystatechange = function(){
+
+        if(this.readyState == 4 && this.status == 200){
+
+            document.querySelector('#result').innerHTML=this.responseText;
+        }
+    }
+
+    server.open("GET", 'https://jsonplaceholder.typicode.com/users', true)
+    server.send();
+
+}
+function loadPhotos(){
+    var server = new XMLHttpRequest();
+
+server.onreadystatechange = function(){
+
+    if(this.readyState == 4 && this.status == 200){
+
+        document.querySelector('#result').innerHTML=this.responseText;
+    }
+}
+
+server.open("GET", 'https://jsonplaceholder.typicode.com/photos', true)
+server.send();
+}
+
+
+    </script>
+</body>
+</html>
+
+
